@@ -3,6 +3,271 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.74](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.73...@tiptap/vue-3@2.0.0-beta.74) (2021-10-31)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.73](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.72...@tiptap/vue-3@2.0.0-beta.73) (2021-10-26)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.72](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.71...@tiptap/vue-3@2.0.0-beta.72) (2021-10-22)
+
+
+### Bug Fixes
+
+* fix a bug when using drag handles ([8f8b83a](https://github.com/ueberdosis/tiptap/commit/8f8b83afe47085a86caef00b48ad64c87a64af89))
+
+
+
+
+
+# [2.0.0-beta.71](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.70...@tiptap/vue-3@2.0.0-beta.71) (2021-10-22)
+
+
+### Features
+
+* Add extension storage ([#2069](https://github.com/ueberdosis/tiptap/issues/2069)) ([7ffabf2](https://github.com/ueberdosis/tiptap/commit/7ffabf251c408a652eec1931cc78a8bd43cccb67))
+
+
+
+
+
+# [2.0.0-beta.70](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.69...@tiptap/vue-3@2.0.0-beta.70) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.69](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.68...@tiptap/vue-3@2.0.0-beta.69) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.68](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.67...@tiptap/vue-3@2.0.0-beta.68) (2021-10-08)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.67](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.66...@tiptap/vue-3@2.0.0-beta.67) (2021-10-02)
+
+
+### Bug Fixes
+
+* fix reactive props, see [#1728](https://github.com/ueberdosis/tiptap/issues/1728) ([7f7f93d](https://github.com/ueberdosis/tiptap/commit/7f7f93dc1b4b56c7647de27a792e000b3513c226))
+
+
+
+
+
+# [2.0.0-beta.66](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.65...@tiptap/vue-3@2.0.0-beta.66) (2021-09-29)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.65](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.64...@tiptap/vue-3@2.0.0-beta.65) (2021-09-28)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.64](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.63...@tiptap/vue-3@2.0.0-beta.64) (2021-09-27)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.63](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.62...@tiptap/vue-3@2.0.0-beta.63) (2021-09-23)
+
+
+### Bug Fixes
+
+* add support for scoped styles, fix [#1931](https://github.com/ueberdosis/tiptap/issues/1931) ([19840f3](https://github.com/ueberdosis/tiptap/commit/19840f3b258f5dbf8a7edff1a85f297871a5ac66))
+
+
+
+
+
+# [2.0.0-beta.62](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.61...@tiptap/vue-3@2.0.0-beta.62) (2021-09-22)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.61](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.60...@tiptap/vue-3@2.0.0-beta.61) (2021-09-20)
+
+
+### Bug Fixes
+
+* fix expose error when using new setup syntax (fix [#1914](https://github.com/ueberdosis/tiptap/issues/1914)) ([60e7755](https://github.com/ueberdosis/tiptap/commit/60e7755b7f7657eec448566580a57db550681ed2))
+
+
+
+
+
+# [2.0.0-beta.60](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.59...@tiptap/vue-3@2.0.0-beta.60) (2021-09-18)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.59](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.58...@tiptap/vue-3@2.0.0-beta.59) (2021-09-15)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.58](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.57...@tiptap/vue-3@2.0.0-beta.58) (2021-09-07)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.57](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.56...@tiptap/vue-3@2.0.0-beta.57) (2021-09-06)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.56](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.55...@tiptap/vue-3@2.0.0-beta.56) (2021-08-26)
+
+
+### Bug Fixes
+
+* use shallowRef on Editor ([#1804](https://github.com/ueberdosis/tiptap/issues/1804)) ([46701fd](https://github.com/ueberdosis/tiptap/commit/46701fde666b925e80f6796a45f928e671bee92d))
+
+
+
+
+
+# [2.0.0-beta.55](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.54...@tiptap/vue-3@2.0.0-beta.55) (2021-08-23)
+
+
+### Bug Fixes
+
+* fix types for BubbleMenu and FloatingMenu props ([d3242c9](https://github.com/ueberdosis/tiptap/commit/d3242c9a0728ea0d164571a6e1eee20fb528f2d8))
+
+
+
+
+
+# [2.0.0-beta.54](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.53...@tiptap/vue-3@2.0.0-beta.54) (2021-08-23)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.53](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.52...@tiptap/vue-3@2.0.0-beta.53) (2021-08-20)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.52](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.51...@tiptap/vue-3@2.0.0-beta.52) (2021-08-13)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.51](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.50...@tiptap/vue-3@2.0.0-beta.51) (2021-08-13)
+
+
+### Bug Fixes
+
+* rename key to pluginKey for menus ([89d26f7](https://github.com/ueberdosis/tiptap/commit/89d26f7cba2a115aa342f0ee621f0b65c840dfb8))
+
+
+
+
+
+# [2.0.0-beta.50](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.49...@tiptap/vue-3@2.0.0-beta.50) (2021-08-12)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
+# [2.0.0-beta.49](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.48...@tiptap/vue-3@2.0.0-beta.49) (2021-08-11)
+
+
+### Features
+
+* add key option and shouldShow option to menus (fix [#1480](https://github.com/ueberdosis/tiptap/issues/1480), fix [#1043](https://github.com/ueberdosis/tiptap/issues/1043), fix [#1268](https://github.com/ueberdosis/tiptap/issues/1268), fix [#1503](https://github.com/ueberdosis/tiptap/issues/1503)) ([9ba61c1](https://github.com/ueberdosis/tiptap/commit/9ba61c1582cee838f2214d00285773ace2fb229e))
+
+
+
+
+
+# [2.0.0-beta.48](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.47...@tiptap/vue-3@2.0.0-beta.48) (2021-07-28)
+
+
+### Bug Fixes
+
+* fix updating node views, fix [#1656](https://github.com/ueberdosis/tiptap/issues/1656) ([d7f6e0c](https://github.com/ueberdosis/tiptap/commit/d7f6e0ce3f99381d3822cde5ab1c484ed13a4c20))
+
+
+
+
+
+# [2.0.0-beta.47](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.46...@tiptap/vue-3@2.0.0-beta.47) (2021-07-27)
+
+
+### Features
+
+* add ignoreMutation option to NodeViewRenderer, fix [#1538](https://github.com/ueberdosis/tiptap/issues/1538) ([651e691](https://github.com/ueberdosis/tiptap/commit/651e6911e3ea5407df6a48783ee16733e0a4f474))
+
+
+
+
+
+# [2.0.0-beta.46](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.45...@tiptap/vue-3@2.0.0-beta.46) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/vue-3
+
+
+
+
+
 # [2.0.0-beta.45](https://github.com/ueberdosis/tiptap/compare/@tiptap/vue-3@2.0.0-beta.44...@tiptap/vue-3@2.0.0-beta.45) (2021-06-23)
 
 **Note:** Version bump only for package @tiptap/vue-3

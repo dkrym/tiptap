@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.27](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.26...@tiptap/extension-collaboration@2.0.0-beta.27) (2021-10-31)
+
+**Note:** Version bump only for package @tiptap/extension-collaboration
+
+
+
+
+
+# [2.0.0-beta.26](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.25...@tiptap/extension-collaboration@2.0.0-beta.26) (2021-10-26)
+
+**Note:** Version bump only for package @tiptap/extension-collaboration
+
+
+
+
+
+# [2.0.0-beta.25](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.24...@tiptap/extension-collaboration@2.0.0-beta.25) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/extension-collaboration
+
+
+
+
+
+# [2.0.0-beta.24](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.23...@tiptap/extension-collaboration@2.0.0-beta.24) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/extension-collaboration
+
+
+
+
+
+# [2.0.0-beta.23](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.22...@tiptap/extension-collaboration@2.0.0-beta.23) (2021-10-08)
+
+**Note:** Version bump only for package @tiptap/extension-collaboration
+
+
+
+
+
+# [2.0.0-beta.22](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.21...@tiptap/extension-collaboration@2.0.0-beta.22) (2021-10-04)
+
+
+### Bug Fixes
+
+* fix plugin order for collab, fix [#1973](https://github.com/ueberdosis/tiptap/issues/1973) ([2b16c2e](https://github.com/ueberdosis/tiptap/commit/2b16c2ea9633529657debff3cdbc74ff3a26b985))
+
+
+
+
+
+# [2.0.0-beta.21](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.20...@tiptap/extension-collaboration@2.0.0-beta.21) (2021-10-03)
+
+
+### Features
+
+* add isChangeOrigin helper method ([92b6c5b](https://github.com/ueberdosis/tiptap/commit/92b6c5bdcef4589acaa824c2fc599787c02c1832))
+
+
+
+
+
+# [2.0.0-beta.20](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.19...@tiptap/extension-collaboration@2.0.0-beta.20) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/extension-collaboration
+
+
+
+
+
 # [2.0.0-beta.19](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-collaboration@2.0.0-beta.18...@tiptap/extension-collaboration@2.0.0-beta.19) (2021-06-07)
 
 **Note:** Version bump only for package @tiptap/extension-collaboration

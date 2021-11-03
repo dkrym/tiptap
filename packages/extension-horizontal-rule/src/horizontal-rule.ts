@@ -23,8 +23,10 @@ declare module '@tiptap/core' {
 export const HorizontalRule = Node.create<HorizontalRuleOptions>({
   name: 'horizontalRule',
 
-  defaultOptions: {
-    HTMLAttributes: {},
+  addOptions() {
+    return {
+      HTMLAttributes: {},
+    }
   },
 
   group: 'block',
@@ -43,14 +45,34 @@ export const HorizontalRule = Node.create<HorizontalRuleOptions>({
     return {
       setHorizontalRule: () => ({ chain }) => {
         return chain()
+          // remove node before hr if it’s an empty text block
+          .command(({ tr, dispatch }) => {
+            const { selection } = tr
+            const { empty, $anchor } = selection
+            const isEmptyTextBlock = $anchor.parent.isTextblock
+              && !$anchor.parent.type.spec.code
+              && !$anchor.parent.textContent
+
+            if (!empty || !isEmptyTextBlock || !dispatch) {
+              return true
+            }
+
+            const from = $anchor.before()
+            const to = $anchor.start()
+
+            tr.deleteRange(from, to)
+            tr.setSelection(TextSelection.create(tr.doc, from))
+
+            return true
+          })
           .insertContent({ type: this.name })
+          // add node after hr if it’s the end of the document
           .command(({ tr, dispatch }) => {
             if (dispatch) {
               const { parent, pos } = tr.selection.$from
               const posAfter = pos + 1
               const nodeAfter = tr.doc.nodeAt(posAfter)
 
-              // end of document
               if (!nodeAfter) {
                 const node = parent.type.contentMatch.defaultType?.create()
 
@@ -72,7 +94,10 @@ export const HorizontalRule = Node.create<HorizontalRuleOptions>({
 
   addInputRules() {
     return [
-      nodeInputRule(/^(?:---|—-|___\s|\*\*\*\s)$/, this.type),
+      nodeInputRule({
+        find: /^(?:---|—-|___\s|\*\*\*\s)$/,
+        type: this.type,
+      }),
     ]
   },
 })

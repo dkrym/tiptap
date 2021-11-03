@@ -29,6 +29,7 @@ export default function getSchemaByResolvedExtensions(extensions: Extensions): S
     const context = {
       name: extension.name,
       options: extension.options,
+      storage: extension.storage,
     }
 
     const extraNodeFields = extensions.reduce((fields, e) => {
@@ -77,6 +78,12 @@ export default function getSchemaByResolvedExtensions(extensions: Extensions): S
       })
     }
 
+    const renderText = getExtensionField<NodeConfig['renderText']>(extension, 'renderText', context)
+
+    if (renderText) {
+      schema.toText = renderText
+    }
+
     return [extension.name, schema]
   }))
 
@@ -85,6 +92,7 @@ export default function getSchemaByResolvedExtensions(extensions: Extensions): S
     const context = {
       name: extension.name,
       options: extension.options,
+      storage: extension.storage,
     }
 
     const extraMarkFields = extensions.reduce((fields, e) => {
@@ -102,10 +110,11 @@ export default function getSchemaByResolvedExtensions(extensions: Extensions): S
 
     const schema: MarkSpec = cleanUpSchemaItem({
       ...extraMarkFields,
-      inclusive: callOrReturn(getExtensionField<NodeConfig['inclusive']>(extension, 'inclusive', context)),
-      excludes: callOrReturn(getExtensionField<NodeConfig['excludes']>(extension, 'excludes', context)),
-      group: callOrReturn(getExtensionField<NodeConfig['group']>(extension, 'group', context)),
-      spanning: callOrReturn(getExtensionField<NodeConfig['spanning']>(extension, 'spanning', context)),
+      inclusive: callOrReturn(getExtensionField<MarkConfig['inclusive']>(extension, 'inclusive', context)),
+      excludes: callOrReturn(getExtensionField<MarkConfig['excludes']>(extension, 'excludes', context)),
+      group: callOrReturn(getExtensionField<MarkConfig['group']>(extension, 'group', context)),
+      spanning: callOrReturn(getExtensionField<MarkConfig['spanning']>(extension, 'spanning', context)),
+      code: callOrReturn(getExtensionField<MarkConfig['code']>(extension, 'code', context)),
       attrs: Object.fromEntries(extensionAttributes.map(extensionAttribute => {
         return [extensionAttribute.name, { default: extensionAttribute?.attribute?.default }]
       })),

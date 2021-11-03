@@ -4,10 +4,12 @@ import { Decoration, DecorationSet, EditorView } from 'prosemirror-view'
 import { findSuggestionMatch } from './findSuggestionMatch'
 
 export interface SuggestionOptions {
+  pluginKey?: PluginKey,
   editor: Editor,
   char?: string,
   allowSpaces?: boolean,
   startOfLine?: boolean,
+  prefixSpace?: boolean,
   decorationTag?: string,
   decorationClass?: string,
   command?: (props: {
@@ -15,7 +17,10 @@ export interface SuggestionOptions {
     range: Range,
     props: any,
   }) => void,
-  items?: (query: string) => any[],
+  items?: (props: {
+    query: string,
+    editor: Editor,
+  }) => any[] | Promise<any[]>,
   render?: () => {
     onStart?: (props: SuggestionProps) => void,
     onUpdate?: (props: SuggestionProps) => void,
@@ -45,10 +50,14 @@ export interface SuggestionKeyDownProps {
   range: Range,
 }
 
+export const SuggestionPluginKey = new PluginKey('suggestion')
+
 export function Suggestion({
+  pluginKey = SuggestionPluginKey,
   editor,
   char = '@',
   allowSpaces = false,
+  prefixSpace = true,
   startOfLine = false,
   decorationTag = 'span',
   decorationClass = 'suggestion',
@@ -61,7 +70,7 @@ export function Suggestion({
   const renderer = render?.()
 
   return new Plugin({
-    key: new PluginKey('suggestion'),
+    key: pluginKey,
 
     view() {
       return {
@@ -83,7 +92,9 @@ export function Suggestion({
             return
           }
 
-          const state = handleExit && !handleStart ? prev : next
+          const state = handleExit && !handleStart
+            ? prev
+            : next
           const decorationNode = document.querySelector(`[data-decoration-id="${state.decorationId}"]`)
           const props: SuggestionProps = {
             editor,
@@ -91,7 +102,10 @@ export function Suggestion({
             query: state.query,
             text: state.text,
             items: (handleChange || handleStart)
-              ? await items(state.query)
+              ? await items({
+                editor,
+                query: state.query,
+              })
               : [],
             command: commandProps => {
               command({
@@ -104,7 +118,14 @@ export function Suggestion({
             // virtual node for popper.js or tippy.js
             // this can be used for building popups without a DOM node
             clientRect: decorationNode
-              ? () => decorationNode.getBoundingClientRect()
+              ? () => {
+                // because of `items` can be asynchrounous we’ll search for the current docoration node
+                const { decorationId } = this.key?.getState(editor.state)
+                const currentDecorationNode = document.querySelector(`[data-decoration-id="${decorationId}"]`)
+
+                // @ts-ignore-error
+                return currentDecorationNode.getBoundingClientRect()
+              }
               : null,
           }
 
@@ -131,18 +152,28 @@ export function Suggestion({
           range: {},
           query: null,
           text: null,
+          composing: false,
         }
       },
 
       // Apply changes to the plugin state from a view transaction.
       apply(transaction, prev) {
+        const { composing } = editor.view
         const { selection } = transaction
+        const { empty, from } = selection
         const next = { ...prev }
 
+        next.composing = composing
+
         // We can only be suggesting if there is no selection
-        if (selection.from === selection.to) {
+        // or a composition is active (see: https://github.com/ueberdosis/tiptap/issues/1449)
+        if (empty || editor.view.composing) {
           // Reset active state if we just left the previous suggestion range
-          if (selection.from < prev.range.from || selection.from > prev.range.to) {
+          if (
+            (from < prev.range.from || from > prev.range.to)
+            && !composing
+            && !prev.composing
+          ) {
             next.active = false
           }
 
@@ -150,6 +181,7 @@ export function Suggestion({
           const match = findSuggestionMatch({
             char,
             allowSpaces,
+            prefixSpace,
             startOfLine,
             $position: selection.$from,
           })

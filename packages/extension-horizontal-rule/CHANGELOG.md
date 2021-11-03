@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.26](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.25...@tiptap/extension-horizontal-rule@2.0.0-beta.26) (2021-10-31)
+
+**Note:** Version bump only for package @tiptap/extension-horizontal-rule
+
+
+
+
+
+# [2.0.0-beta.25](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.24...@tiptap/extension-horizontal-rule@2.0.0-beta.25) (2021-10-26)
+
+**Note:** Version bump only for package @tiptap/extension-horizontal-rule
+
+
+
+
+
+# [2.0.0-beta.24](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.23...@tiptap/extension-horizontal-rule@2.0.0-beta.24) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/extension-horizontal-rule
+
+
+
+
+
+# [2.0.0-beta.23](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.22...@tiptap/extension-horizontal-rule@2.0.0-beta.23) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/extension-horizontal-rule
+
+
+
+
+
+# [2.0.0-beta.22](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.21...@tiptap/extension-horizontal-rule@2.0.0-beta.22) (2021-10-08)
+
+
+### Features
+
+* Integrate input rules and paste rules into the core ([#1997](https://github.com/ueberdosis/tiptap/issues/1997)) ([723b955](https://github.com/ueberdosis/tiptap/commit/723b955cecc5c92c8aad897ce16c60fb62976571))
+
+
+
+
+
+# [2.0.0-beta.21](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.20...@tiptap/extension-horizontal-rule@2.0.0-beta.21) (2021-10-02)
+
+**Note:** Version bump only for package @tiptap/extension-horizontal-rule
+
+
+
+
+
+# [2.0.0-beta.20](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.19...@tiptap/extension-horizontal-rule@2.0.0-beta.20) (2021-09-29)
+
+
+### Bug Fixes
+
+* remove node before hr if it’s an empty text block, fix [#1665](https://github.com/ueberdosis/tiptap/issues/1665) ([4151e2f](https://github.com/ueberdosis/tiptap/commit/4151e2fd81ae6c007d32b72ac41feac3c81e438b))
+
+
+
+
+
+# [2.0.0-beta.19](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.18...@tiptap/extension-horizontal-rule@2.0.0-beta.19) (2021-08-12)
+
+
+### Bug Fixes
+
+* remove node before hr if it’s an empty text block (fix [#1665](https://github.com/ueberdosis/tiptap/issues/1665)) ([6e76bb8](https://github.com/ueberdosis/tiptap/commit/6e76bb84fc65eb95157f900c35adfdd28e88a8e3))
+
+
+
+
+
+# [2.0.0-beta.18](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.17...@tiptap/extension-horizontal-rule@2.0.0-beta.18) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/extension-horizontal-rule
+
+
+
+
+
 # [2.0.0-beta.17](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-horizontal-rule@2.0.0-beta.16...@tiptap/extension-horizontal-rule@2.0.0-beta.17) (2021-06-07)
 
 **Note:** Version bump only for package @tiptap/extension-horizontal-rule

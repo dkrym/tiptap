@@ -31,10 +31,11 @@ module.exports = {
       extends: [
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:vue/strongly-recommended',
+        'plugin:vue/vue3-strongly-recommended',
         'airbnb-base',
       ],
       rules: {
+        'no-continue': 'off',
         'no-alert': 'off',
         'no-console': ['warn', { allow: ['warn', 'error'] }],
         semi: ['error', 'never'],

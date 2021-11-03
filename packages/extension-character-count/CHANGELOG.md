@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.15](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-character-count@2.0.0-beta.14...@tiptap/extension-character-count@2.0.0-beta.15) (2021-10-31)
+
+**Note:** Version bump only for package @tiptap/extension-character-count
+
+
+
+
+
+# [2.0.0-beta.14](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-character-count@2.0.0-beta.13...@tiptap/extension-character-count@2.0.0-beta.14) (2021-10-26)
+
+**Note:** Version bump only for package @tiptap/extension-character-count
+
+
+
+
+
+# [2.0.0-beta.13](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-character-count@2.0.0-beta.12...@tiptap/extension-character-count@2.0.0-beta.13) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/extension-character-count
+
+
+
+
+
 # [2.0.0-beta.12](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-character-count@2.0.0-beta.11...@tiptap/extension-character-count@2.0.0-beta.12) (2021-05-18)
 
 **Note:** Version bump only for package @tiptap/extension-character-count

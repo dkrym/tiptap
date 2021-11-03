@@ -4,6 +4,7 @@ import * as clearContent from '../commands/clearContent'
 import * as clearNodes from '../commands/clearNodes'
 import * as command from '../commands/command'
 import * as createParagraphNear from '../commands/createParagraphNear'
+import * as deleteNode from '../commands/deleteNode'
 import * as deleteRange from '../commands/deleteRange'
 import * as deleteSelection from '../commands/deleteSelection'
 import * as enter from '../commands/enter'
@@ -21,8 +22,6 @@ import * as lift from '../commands/lift'
 import * as liftEmptyBlock from '../commands/liftEmptyBlock'
 import * as liftListItem from '../commands/liftListItem'
 import * as newlineInCode from '../commands/newlineInCode'
-import * as replace from '../commands/replace'
-import * as replaceRange from '../commands/replaceRange'
 import * as resetAttributes from '../commands/resetAttributes'
 import * as scrollIntoView from '../commands/scrollIntoView'
 import * as selectAll from '../commands/selectAll'
@@ -54,6 +53,7 @@ export { clearContent }
 export { clearNodes }
 export { command }
 export { createParagraphNear }
+export { deleteNode }
 export { deleteRange }
 export { deleteSelection }
 export { enter }
@@ -71,8 +71,6 @@ export { lift }
 export { liftEmptyBlock }
 export { liftListItem }
 export { newlineInCode }
-export { replace }
-export { replaceRange }
 export { resetAttributes }
 export { scrollIntoView }
 export { selectAll }
@@ -109,6 +107,7 @@ export const Commands = Extension.create({
       ...clearNodes,
       ...command,
       ...createParagraphNear,
+      ...deleteNode,
       ...deleteRange,
       ...deleteSelection,
       ...enter,
@@ -126,8 +125,6 @@ export const Commands = Extension.create({
       ...liftEmptyBlock,
       ...liftListItem,
       ...newlineInCode,
-      ...replace,
-      ...replaceRange,
       ...resetAttributes,
       ...scrollIntoView,
       ...selectAll,

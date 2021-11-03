@@ -3,6 +3,178 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.81](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.80...@tiptap/extension-mention@2.0.0-beta.81) (2021-10-31)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.80](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.79...@tiptap/extension-mention@2.0.0-beta.80) (2021-10-26)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.79](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.78...@tiptap/extension-mention@2.0.0-beta.79) (2021-10-25)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.78](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.77...@tiptap/extension-mention@2.0.0-beta.78) (2021-10-22)
+
+
+### Bug Fixes
+
+* fix check for showing mention suggestion ([5e652c9](https://github.com/ueberdosis/tiptap/commit/5e652c94a7d72e480003449b2dd6050a55df9cc7))
+
+
+
+
+
+# [2.0.0-beta.77](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.76...@tiptap/extension-mention@2.0.0-beta.77) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.76](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.75...@tiptap/extension-mention@2.0.0-beta.76) (2021-10-14)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.75](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.74...@tiptap/extension-mention@2.0.0-beta.75) (2021-10-08)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.74](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.73...@tiptap/extension-mention@2.0.0-beta.74) (2021-09-20)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.73](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.72...@tiptap/extension-mention@2.0.0-beta.73) (2021-09-15)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.72](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.71...@tiptap/extension-mention@2.0.0-beta.72) (2021-09-08)
+
+
+### Features
+
+* parseHTML for attributes should return the value instead of an object now, fix [#1863](https://github.com/ueberdosis/tiptap/issues/1863) ([8a3b47a](https://github.com/ueberdosis/tiptap/commit/8a3b47a529d28b28b50d634c6ff69b8e5aad3080))
+
+
+
+
+
+# [2.0.0-beta.71](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.70...@tiptap/extension-mention@2.0.0-beta.71) (2021-09-06)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.70](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.69...@tiptap/extension-mention@2.0.0-beta.70) (2021-08-23)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.69](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.68...@tiptap/extension-mention@2.0.0-beta.69) (2021-08-23)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.68](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.67...@tiptap/extension-mention@2.0.0-beta.68) (2021-08-20)
+
+
+### Bug Fixes
+
+* prevent multiple space characters after mention node, fix [#1703](https://github.com/ueberdosis/tiptap/issues/1703) ([3f7e6b2](https://github.com/ueberdosis/tiptap/commit/3f7e6b219b572d2aa06618ce125ba86cd2fcd0bd))
+
+
+
+
+
+# [2.0.0-beta.67](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.66...@tiptap/extension-mention@2.0.0-beta.67) (2021-08-13)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.66](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.65...@tiptap/extension-mention@2.0.0-beta.66) (2021-08-13)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.65](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.64...@tiptap/extension-mention@2.0.0-beta.65) (2021-08-13)
+
+
+### Bug Fixes
+
+* add pluginKey option to suggestion plugin, fix [#1282](https://github.com/ueberdosis/tiptap/issues/1282) ([7cf3350](https://github.com/ueberdosis/tiptap/commit/7cf3350a832181f8cc1fa7ea1afec8f8d083e507))
+
+
+
+
+
+# [2.0.0-beta.64](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.63...@tiptap/extension-mention@2.0.0-beta.64) (2021-08-09)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.63](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.62...@tiptap/extension-mention@2.0.0-beta.63) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
+# [2.0.0-beta.62](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.61...@tiptap/extension-mention@2.0.0-beta.62) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/extension-mention
+
+
+
+
+
 # [2.0.0-beta.61](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-mention@2.0.0-beta.60...@tiptap/extension-mention@2.0.0-beta.61) (2021-06-23)
 
 **Note:** Version bump only for package @tiptap/extension-mention

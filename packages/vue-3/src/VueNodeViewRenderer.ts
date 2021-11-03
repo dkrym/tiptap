@@ -3,6 +3,7 @@ import {
   NodeViewProps,
   NodeViewRenderer,
   NodeViewRendererProps,
+  NodeViewRendererOptions,
 } from '@tiptap/core'
 import {
   ref,
@@ -52,12 +53,17 @@ export const nodeViewProps = {
   },
 }
 
-interface VueNodeViewRendererOptions {
-  stopEvent: ((event: Event) => boolean) | null,
-  update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null,
+export interface VueNodeViewRendererOptions extends NodeViewRendererOptions {
+  update: ((props: {
+    oldNode: ProseMirrorNode,
+    oldDecorations: Decoration[],
+    newNode: ProseMirrorNode,
+    newDecorations: Decoration[],
+    updateProps: () => void,
+  }) => boolean) | null,
 }
 
-class VueNodeView extends NodeView<Component, Editor> {
+class VueNodeView extends NodeView<Component, Editor, VueNodeViewRendererOptions> {
 
   renderer!: VueRenderer
 
@@ -82,12 +88,18 @@ class VueNodeView extends NodeView<Component, Editor> {
     const extendedComponent = defineComponent({
       extends: { ...this.component },
       props: Object.keys(props),
-      setup: () => {
+      setup: reactiveProps => {
         provide('onDragStart', onDragStart)
         provide('decorationClasses', this.decorationClasses)
 
-        return (this.component as any).setup?.(props)
+        return (this.component as any).setup?.(reactiveProps, {
+          expose: () => undefined,
+        })
       },
+      // add support for scoped styles
+      // @ts-ignore
+      // eslint-disable-next-line
+      __scopeId: this.component.__scopeId,
     })
 
     this.renderer = new VueRenderer(extendedComponent, {
@@ -115,8 +127,25 @@ class VueNodeView extends NodeView<Component, Editor> {
   }
 
   update(node: ProseMirrorNode, decorations: Decoration[]) {
+    const updateProps = (props?: Record<string, any>) => {
+      this.decorationClasses.value = this.getDecorationClasses()
+      this.renderer.updateProps(props)
+    }
+
     if (typeof this.options.update === 'function') {
-      return this.options.update(node, decorations)
+      const oldNode = this.node
+      const oldDecorations = this.decorations
+
+      this.node = node
+      this.decorations = decorations
+
+      return this.options.update({
+        oldNode,
+        oldDecorations,
+        newNode: node,
+        newDecorations: decorations,
+        updateProps: () => updateProps({ node, decorations }),
+      })
     }
 
     if (node.type !== this.node.type) {
@@ -129,8 +158,8 @@ class VueNodeView extends NodeView<Component, Editor> {
 
     this.node = node
     this.decorations = decorations
-    this.decorationClasses.value = this.getDecorationClasses()
-    this.renderer.updateProps({ node, decorations })
+
+    updateProps({ node, decorations })
 
     return true
   }

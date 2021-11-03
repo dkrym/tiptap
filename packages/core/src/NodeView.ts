@@ -6,11 +6,17 @@ import { Node } from './Node'
 import isiOS from './utilities/isiOS'
 import { NodeViewRendererProps, NodeViewRendererOptions } from './types'
 
-export class NodeView<Component, Editor extends CoreEditor = CoreEditor> implements ProseMirrorNodeView {
+export class NodeView<
+  Component,
+  Editor extends CoreEditor = CoreEditor,
+  Options extends NodeViewRendererOptions = NodeViewRendererOptions,
+> implements ProseMirrorNodeView {
 
   component: Component
 
   editor: Editor
+
+  options: Options
 
   extension: Node
 
@@ -22,15 +28,14 @@ export class NodeView<Component, Editor extends CoreEditor = CoreEditor> impleme
 
   isDragging = false
 
-  options: NodeViewRendererOptions = {
-    stopEvent: null,
-    update: null,
-  }
-
-  constructor(component: Component, props: NodeViewRendererProps, options?: Partial<NodeViewRendererOptions>) {
+  constructor(component: Component, props: NodeViewRendererProps, options?: Partial<Options>) {
     this.component = component
-    this.options = { ...this.options, ...options }
     this.editor = props.editor as Editor
+    this.options = {
+      stopEvent: null,
+      ignoreMutation: null,
+      ...options,
+    } as Options
     this.extension = props.extension
     this.node = props.node
     this.decorations = props.decorations
@@ -97,7 +102,7 @@ export class NodeView<Component, Editor extends CoreEditor = CoreEditor> impleme
     }
 
     if (typeof this.options.stopEvent === 'function') {
-      return this.options.stopEvent(event)
+      return this.options.stopEvent({ event })
     }
 
     const target = (event.target as HTMLElement)
@@ -108,11 +113,12 @@ export class NodeView<Component, Editor extends CoreEditor = CoreEditor> impleme
       return false
     }
 
+    const isDropEvent = event.type === 'drop'
     const isInput = ['INPUT', 'BUTTON', 'SELECT', 'TEXTAREA'].includes(target.tagName)
       || target.isContentEditable
 
     // any input event within node views should be ignored by ProseMirror
-    if (isInput) {
+    if (isInput && !isDropEvent) {
       return true
     }
 
@@ -124,7 +130,7 @@ export class NodeView<Component, Editor extends CoreEditor = CoreEditor> impleme
     const isPasteEvent = event.type === 'paste'
     const isCutEvent = event.type === 'cut'
     const isClickEvent = event.type === 'mousedown'
-    const isDragEvent = event.type.startsWith('drag') || event.type === 'drop'
+    const isDragEvent = event.type.startsWith('drag')
 
     // ProseMirror tries to drag selectable nodes
     // even if `draggable` is set to `false`
@@ -160,6 +166,7 @@ export class NodeView<Component, Editor extends CoreEditor = CoreEditor> impleme
     // these events are handled by prosemirror
     if (
       isDragging
+      || isDropEvent
       || isCopyEvent
       || isPasteEvent
       || isCutEvent
@@ -174,6 +181,10 @@ export class NodeView<Component, Editor extends CoreEditor = CoreEditor> impleme
   ignoreMutation(mutation: MutationRecord | { type: 'selection', target: Element }) {
     if (!this.dom || !this.contentDOM) {
       return true
+    }
+
+    if (typeof this.options.ignoreMutation === 'function') {
+      return this.options.ignoreMutation({ mutation })
     }
 
     // a leaf/atom node is like a black box for ProseMirror

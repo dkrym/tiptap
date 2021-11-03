@@ -1,5 +1,4 @@
-import { Node, mergeAttributes } from '@tiptap/core'
-import { wrappingInputRule } from 'prosemirror-inputrules'
+import { Node, mergeAttributes, wrappingInputRule } from '@tiptap/core'
 
 export interface TaskItemOptions {
   nested: boolean,
@@ -11,9 +10,11 @@ export const inputRegex = /^\s*(\[([ |x])\])\s$/
 export const TaskItem = Node.create<TaskItemOptions>({
   name: 'taskItem',
 
-  defaultOptions: {
-    nested: false,
-    HTMLAttributes: {},
+  addOptions() {
+    return {
+      nested: false,
+      HTMLAttributes: {},
+    }
   },
 
   content() {
@@ -26,13 +27,11 @@ export const TaskItem = Node.create<TaskItemOptions>({
     return {
       checked: {
         default: false,
-        parseHTML: element => ({
-          checked: element.getAttribute('data-checked') === 'true',
-        }),
+        keepOnSplit: false,
+        parseHTML: element => element.getAttribute('data-checked') === 'true',
         renderHTML: attributes => ({
           'data-checked': attributes.checked,
         }),
-        keepOnSplit: false,
       },
     }
   },
@@ -111,6 +110,10 @@ export const TaskItem = Node.create<TaskItemOptions>({
         }
       })
 
+      Object.entries(this.options.HTMLAttributes).forEach(([key, value]) => {
+        listItem.setAttribute(key, value)
+      })
+
       listItem.dataset.checked = node.attrs.checked
       if (node.attrs.checked) {
         checkbox.setAttribute('checked', 'checked')
@@ -148,13 +151,13 @@ export const TaskItem = Node.create<TaskItemOptions>({
 
   addInputRules() {
     return [
-      wrappingInputRule(
-        inputRegex,
-        this.type,
-        match => ({
+      wrappingInputRule({
+        find: inputRegex,
+        type: this.type,
+        getAttributes: match => ({
           checked: match[match.length - 1] === 'x',
         }),
-      ),
+      }),
     ]
   },
 })

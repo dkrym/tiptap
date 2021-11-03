@@ -3,6 +3,7 @@ import {
   NodeViewProps,
   NodeViewRenderer,
   NodeViewRendererProps,
+  NodeViewRendererOptions,
 } from '@tiptap/core'
 import { Decoration, NodeView as ProseMirrorNodeView } from 'prosemirror-view'
 import { Node as ProseMirrorNode } from 'prosemirror-model'
@@ -46,12 +47,17 @@ export const nodeViewProps = {
   },
 }
 
-export interface VueNodeViewRendererOptions {
-  stopEvent: ((event: Event) => boolean) | null,
-  update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null,
+export interface VueNodeViewRendererOptions extends NodeViewRendererOptions {
+  update: ((props: {
+    oldNode: ProseMirrorNode,
+    oldDecorations: Decoration[],
+    newNode: ProseMirrorNode,
+    newDecorations: Decoration[],
+    updateProps: () => void,
+  }) => boolean) | null,
 }
 
-class VueNodeView extends NodeView<(Vue | VueConstructor), Editor> {
+class VueNodeView extends NodeView<(Vue | VueConstructor), Editor, VueNodeViewRendererOptions> {
 
   renderer!: VueRenderer
 
@@ -114,8 +120,25 @@ class VueNodeView extends NodeView<(Vue | VueConstructor), Editor> {
   }
 
   update(node: ProseMirrorNode, decorations: Decoration[]) {
+    const updateProps = (props?: Record<string, any>) => {
+      this.decorationClasses.value = this.getDecorationClasses()
+      this.renderer.updateProps(props)
+    }
+
     if (typeof this.options.update === 'function') {
-      return this.options.update(node, decorations)
+      const oldNode = this.node
+      const oldDecorations = this.decorations
+
+      this.node = node
+      this.decorations = decorations
+
+      return this.options.update({
+        oldNode,
+        oldDecorations,
+        newNode: node,
+        newDecorations: decorations,
+        updateProps: () => updateProps({ node, decorations }),
+      })
     }
 
     if (node.type !== this.node.type) {
@@ -128,8 +151,8 @@ class VueNodeView extends NodeView<(Vue | VueConstructor), Editor> {
 
     this.node = node
     this.decorations = decorations
-    this.decorationClasses.value = this.getDecorationClasses()
-    this.renderer.updateProps({ node, decorations })
+
+    updateProps({ node, decorations })
 
     return true
   }

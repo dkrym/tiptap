@@ -7,16 +7,18 @@ export interface CodeBlockLowlightOptions extends CodeBlockOptions {
 }
 
 export const CodeBlockLowlight = CodeBlock.extend<CodeBlockLowlightOptions>({
-  defaultOptions: {
-    ...CodeBlock.options,
-    lowlight,
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      lowlight,
+    }
   },
 
   addProseMirrorPlugins() {
     return [
       ...this.parent?.() || [],
       LowlightPlugin({
-        name: 'codeBlock',
+        name: this.name,
         lowlight: this.options.lowlight,
       }),
     ]

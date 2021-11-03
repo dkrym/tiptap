@@ -1,6 +1,6 @@
 import { Extension } from '@tiptap/core'
 
-export type TextAlignOptions = {
+export interface TextAlignOptions {
   types: string[],
   alignments: string[],
   defaultAlignment: string,
@@ -24,10 +24,12 @@ declare module '@tiptap/core' {
 export const TextAlign = Extension.create<TextAlignOptions>({
   name: 'textAlign',
 
-  defaultOptions: {
-    types: [],
-    alignments: ['left', 'center', 'right', 'justify'],
-    defaultAlignment: 'left',
+  addOptions() {
+    return {
+      types: [],
+      alignments: ['left', 'center', 'right', 'justify'],
+      defaultAlignment: 'left',
+    }
   },
 
   addGlobalAttributes() {
@@ -37,9 +39,7 @@ export const TextAlign = Extension.create<TextAlignOptions>({
         attributes: {
           textAlign: {
             default: this.options.defaultAlignment,
-            parseHTML: element => ({
-              textAlign: element.style.textAlign || this.options.defaultAlignment,
-            }),
+            parseHTML: element => element.style.textAlign || this.options.defaultAlignment,
             renderHTML: attributes => {
               if (attributes.textAlign === this.options.defaultAlignment) {
                 return {}

@@ -1,7 +1,8 @@
-import { EditorState, TextSelection } from 'prosemirror-state'
+import { EditorState, Selection, TextSelection } from 'prosemirror-state'
 import { RawCommands, FocusPosition } from '../types'
 import minMax from '../utilities/minMax'
 import isTextSelection from '../helpers/isTextSelection'
+import isiOS from '../utilities/isiOS'
 
 function resolveSelection(state: EditorState, position: FocusPosition = null) {
   if (!position) {
@@ -47,25 +48,46 @@ export const focus: RawCommands['focus'] = (position = null) => ({
   tr,
   dispatch,
 }) => {
+  const delayedFocus = () => {
+    // focus within `requestAnimationFrame` breaks focus on iOS
+    // so we have to call this
+    if (isiOS()) {
+      (view.dom as HTMLElement).focus()
+    }
+
+    // For React we have to focus asynchronously. Otherwise wild things happen.
+    // see: https://github.com/ueberdosis/tiptap/issues/1520
+    requestAnimationFrame(() => {
+      if (!editor.isDestroyed) {
+        view.focus()
+        editor.commands.scrollIntoView()
+      }
+    })
+  }
+
   if ((view.hasFocus() && position === null) || position === false) {
     return true
   }
 
   // we don’t try to resolve a NodeSelection or CellSelection
   if (dispatch && position === null && !isTextSelection(editor.state.selection)) {
-    view.focus()
+    delayedFocus()
     return true
   }
 
   const { from, to } = resolveSelection(editor.state, position) || editor.state.selection
   const { doc, storedMarks } = tr
-  const resolvedFrom = minMax(from, 0, doc.content.size)
-  const resolvedEnd = minMax(to, 0, doc.content.size)
+  const minPos = Selection.atStart(doc).from
+  const maxPos = Selection.atEnd(doc).to
+  const resolvedFrom = minMax(from, minPos, maxPos)
+  const resolvedEnd = minMax(to, minPos, maxPos)
   const selection = TextSelection.create(doc, resolvedFrom, resolvedEnd)
   const isSameSelection = editor.state.selection.eq(selection)
 
   if (dispatch) {
-    tr.setSelection(selection)
+    if (!isSameSelection) {
+      tr.setSelection(selection)
+    }
 
     // `tr.setSelection` resets the stored marks
     // so we’ll restore them if the selection is the same as before
@@ -73,7 +95,7 @@ export const focus: RawCommands['focus'] = (position = null) => ({
       tr.setStoredMarks(storedMarks)
     }
 
-    view.focus()
+    delayedFocus()
   }
 
   return true

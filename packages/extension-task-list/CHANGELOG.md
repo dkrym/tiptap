@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.20](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-task-list@2.0.0-beta.19...@tiptap/extension-task-list@2.0.0-beta.20) (2021-10-31)
+
+**Note:** Version bump only for package @tiptap/extension-task-list
+
+
+
+
+
+# [2.0.0-beta.19](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-task-list@2.0.0-beta.18...@tiptap/extension-task-list@2.0.0-beta.19) (2021-10-26)
+
+**Note:** Version bump only for package @tiptap/extension-task-list
+
+
+
+
+
+# [2.0.0-beta.18](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-task-list@2.0.0-beta.17...@tiptap/extension-task-list@2.0.0-beta.18) (2021-10-15)
+
+
+### Bug Fixes
+
+* add missing HTMLAttributes to task list, fix [#2042](https://github.com/ueberdosis/tiptap/issues/2042) ([7503d1b](https://github.com/ueberdosis/tiptap/commit/7503d1bed1651899ee90bc9adf76899d90ace9e7))
+
+
+
+
+
+# [2.0.0-beta.17](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-task-list@2.0.0-beta.16...@tiptap/extension-task-list@2.0.0-beta.17) (2021-07-26)
+
+**Note:** Version bump only for package @tiptap/extension-task-list
+
+
+
+
+
 # [2.0.0-beta.16](https://github.com/ueberdosis/tiptap/compare/@tiptap/extension-task-list@2.0.0-beta.15...@tiptap/extension-task-list@2.0.0-beta.16) (2021-06-07)
 
 **Note:** Version bump only for package @tiptap/extension-task-list

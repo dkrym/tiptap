@@ -28,16 +28,18 @@ declare module '@tiptap/core' {
   }
 }
 
-export const starInputRegex = /(?:^|\s)((?:\*)((?:[^*]+))(?:\*))$/gm
-export const starPasteRegex = /(?:^|\s)((?:\*)((?:[^*]+))(?:\*))/gm
-export const underscoreInputRegex = /(?:^|\s)((?:_)((?:[^_]+))(?:_))$/gm
-export const underscorePasteRegex = /(?:^|\s)((?:_)((?:[^_]+))(?:_))/gm
+export const starInputRegex = /(?:^|\s)((?:\*)((?:[^*]+))(?:\*))$/
+export const starPasteRegex = /(?:^|\s)((?:\*)((?:[^*]+))(?:\*))/g
+export const underscoreInputRegex = /(?:^|\s)((?:_)((?:[^_]+))(?:_))$/
+export const underscorePasteRegex = /(?:^|\s)((?:_)((?:[^_]+))(?:_))/g
 
 export const Italic = Mark.create<ItalicOptions>({
   name: 'italic',
 
-  defaultOptions: {
-    HTMLAttributes: {},
+  addOptions() {
+    return {
+      HTMLAttributes: {},
+    }
   },
 
   parseHTML() {
@@ -81,15 +83,27 @@ export const Italic = Mark.create<ItalicOptions>({
 
   addInputRules() {
     return [
-      markInputRule(starInputRegex, this.type),
-      markInputRule(underscoreInputRegex, this.type),
+      markInputRule({
+        find: starInputRegex,
+        type: this.type,
+      }),
+      markInputRule({
+        find: underscoreInputRegex,
+        type: this.type,
+      }),
     ]
   },
 
   addPasteRules() {
     return [
-      markPasteRule(starPasteRegex, this.type),
-      markPasteRule(underscorePasteRegex, this.type),
+      markPasteRule({
+        find: starPasteRegex,
+        type: this.type,
+      }),
+      markPasteRule({
+        find: underscorePasteRegex,
+        type: this.type,
+      }),
     ]
   },
 })

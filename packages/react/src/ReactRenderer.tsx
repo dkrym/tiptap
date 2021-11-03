@@ -1,5 +1,6 @@
 import React from 'react'
-import { Editor } from './Editor'
+import { Editor } from '@tiptap/core'
+import { Editor as ExtendedEditor } from './Editor'
 
 function isClassComponent(Component: any) {
   return !!(
@@ -9,16 +10,28 @@ function isClassComponent(Component: any) {
   )
 }
 
+function isForwardRefComponent(Component: any) {
+  return !!(
+    typeof Component === 'object'
+    && Component.$$typeof?.toString() === 'Symbol(react.forward_ref)'
+  )
+}
+
 export interface ReactRendererOptions {
   editor: Editor,
   props?: Record<string, any>,
   as?: string,
 }
 
-export class ReactRenderer {
+type ComponentType<R> =
+  | React.ComponentClass
+  | React.FunctionComponent
+  | React.ForwardRefExoticComponent<{ items: any[], command: any } & React.RefAttributes<R>>
+
+export class ReactRenderer<R = unknown> {
   id: string
 
-  editor: Editor
+  editor: ExtendedEditor
 
   component: any
 
@@ -28,12 +41,12 @@ export class ReactRenderer {
 
   reactElement: React.ReactNode
 
-  ref: React.Component | null = null
+  ref: R | null = null
 
-  constructor(component: React.Component | React.FunctionComponent, { editor, props = {}, as = 'div' }: ReactRendererOptions) {
+  constructor(component: ComponentType<R>, { editor, props = {}, as = 'div' }: ReactRendererOptions) {
     this.id = Math.floor(Math.random() * 0xFFFFFFFF).toString()
     this.component = component
-    this.editor = editor
+    this.editor = editor as ExtendedEditor
     this.props = props
     this.element = document.createElement(as)
     this.element.classList.add('react-renderer')
@@ -44,8 +57,8 @@ export class ReactRenderer {
     const Component = this.component
     const props = this.props
 
-    if (isClassComponent(Component)) {
-      props.ref = (ref: React.Component) => {
+    if (isClassComponent(Component) || isForwardRefComponent(Component)) {
+      props.ref = (ref: R) => {
         this.ref = ref
       }
     }

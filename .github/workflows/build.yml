@@ -20,14 +20,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [16]
 
     steps:
 
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2.3.5
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2.2.0
+      uses: actions/setup-node@v2.4.1
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -76,14 +76,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [16]
 
     steps:
 
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2.3.5
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2.2.0
+      uses: actions/setup-node@v2.4.1
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -132,14 +132,14 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [16]
 
     steps:
 
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2.3.5
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2.2.0
+      uses: actions/setup-node@v2.4.1
       with:
         node-version: ${{ matrix.node-version }}
 
